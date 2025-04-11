@@ -26,6 +26,10 @@ router.get('/about', (req, res) => {
 	res.render('about');
 })
 
+router.get('/champions', (req, res) => {
+	res.render('champions');
+})
+
 // with controllers
 
 router.get('/leaderboard', PLAYER.leaderboard);
