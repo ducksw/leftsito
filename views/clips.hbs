@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <title>LEFTSITO | Clips</title>
+</head>
+<body>
+    {{> nav}}
+
+<div class="main">
+  <div class="box">
+    <p>¡Bienvenido a la zona de clips! Aquí puedes compartir tus videos favoritos subiendo solo enlaces de YouTube.</p>
+
+    <div class="submit-video">
+      <form method="POST" class="add_video">
+        <span>Descripción:</span>
+        <input type="text" placeholder="Descripción" name="title" required>
+        <span>Link:</span>
+        <input type="text" placeholder="Link Youtube" name="link" required>
+        <button type="submit">[Subir clip]</button>
+      </form>
+    </div>
+
+    <div class="box-clip">
+      <h3>Clips:</h3>
+      <div class="box-image">
+        {{#if clips}}
+          {{#each clips}}
+              <a href="/clips/{{this._id}}" class="clips-box">
+              <img src="https://img.youtube.com/vi/{{this.thumbnail_url}}/maxresdefault.jpg">
+              <span class="title-clips">{{this.title}}</span>
+              </a>
+          {{/each}}
+        {{else}}
+          <span>No hay clips</span>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  <div class="box-right">
+    {{> profile}}
+  </div>
+</div>
+
+<script>
+document.querySelector('.add_video').addEventListener('submit', function (e) {
+	const ytInput = this.querySelector('input[name="link"]');
+	const ytLink = ytInput.value.trim();
+	const ytRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
+
+	if (!ytRegex.test(ytLink)) {
+		e.preventDefault();
+		alert('Por favor, ingresa un link válido de YouTube.');
+		ytInput.focus();
+	}
+});
+</script>
+</body>
+</html>

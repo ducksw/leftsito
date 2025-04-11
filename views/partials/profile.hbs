@@ -1,0 +1,19 @@
+<div class="profile">
+  {{#if displayName}}
+    <div class="profile-box">
+      <span class="name-profile">Profile ({{displayName}})</span>
+      <hr/>
+      <a href="{{profileurl}}" target="_blank">[Steam]</a>
+      <a href="">[Settings]</a>
+      {{#if adminAccess}}
+        <a href="">[Edit User]</a>
+      {{/if}}
+    </div>
+    {{else}}
+    <div class="profile-box">
+      <span class="name-profile">Invitado</span>
+      <hr/>
+      <span>Inicie sesión con steam <a href="/login">aquí</a></span>
+    </div>
+  {{/if}}
+</div>

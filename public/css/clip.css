@@ -1,0 +1,30 @@
+iframe {
+  max-width: 100%;
+  height: 500px;
+  border-radius: 5px;
+  border: none;
+}
+
+.box-frame {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #111111;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.clip-user {
+  display: flex;
+  flex-direction: column;
+}
+
+.clip-user b {
+  color: rgb(247, 78, 78);
+}
+
+.view-title {
+  color: darkgrey;
+  margin-top: 15px;
+  font-weight: bold;
+}

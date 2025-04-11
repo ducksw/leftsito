@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEFTSITO | Leaderboard</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/nav.css">
+</head>
+<body>
+  {{> nav}}
+
+<div class="main">
+  <div class="box">
+    <p>Zona de clasificación. Aquí los jugadores son organizados según su rendimiento en la partida, como daño causado, zombis eliminados y apoyo al equipo. Es una forma divertida de comparar estadísticas y ver quién fue el verdadero MVP del juego.</p>
+    <h3>¡Pantalla de clasificación!</h3>
+    <hr/>
+
+    <div class="input">
+      <a href="/leaderboard">View all table</a>
+      <form method="GET" action="/leaderboard">
+        <span>Search Player:</span>
+        <input type="text" name="search" placeholder="Nickname" value="{{search}}">
+        <button type="submit">[Search]</button>
+      </form>
+    </div>
+
+    {{#each steam}}
+      <div class="data">
+        <span class="number">{{increment @index}})</span>
+        <span><img src="{{this.avatar}}"/></span>
+        |
+        <span class="name {{medalla @index}}">{{this.displayName}}</span>
+        |
+        <span>{{this.elo}}</span>
+        <span>Elo(s)</span>
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="box-right">
+    {{> profile}}
+    {{#if displayName}}
+      <p><b>Oh si!!</b> el momento ha llegado... que empiece la competencia, a ver quién es el mejor.</p>
+    {{else}}
+      <p>Si no te ves en la tabla, inicia sesión con tu <a href="/login"><b>Cuenta de Steam</a></b> para registrar tu progreso y aparecer en el ranking.</p>
+    {{/if}}
+  </div>
+</div>
+</body>
+</html>

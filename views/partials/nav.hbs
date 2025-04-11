@@ -1,0 +1,33 @@
+<nav>
+  <div class="logo">
+    <div class="image">
+      {{#if displayName}}
+        <img class="online" src="../../image/icon.png">
+      {{else}}
+        <img class="offline" src="../../image/icon.png">
+      {{/if}}
+      </div>
+      <div class="title">
+        <span>LEFTSITO</span>
+      <span>2025</span>
+    </div>
+  </div>
+  <div class="link-nav">
+    <div class="links">
+      <a href="/home">[Home]</a>
+      <a href="/rules">[Rules]</a>
+      <a href="/about">[About]</a>
+      {{#if displayName}}
+        <a href="/logout" id="logut">[Log Out]</a>
+      {{else}}
+        <a href="/login">[Sign in]</a>
+      {{/if}}
+    </div>
+    <div class="links">
+      <a href="/clips">[Clips]</a>
+      <a href="">[Champions]</a>
+      <!--<a href="">[Stats]</a>-->
+      <a href="/leaderboard">[Leaderboard]</a>
+    </div>
+  </div>
+</nav>
