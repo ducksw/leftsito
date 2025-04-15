@@ -13,7 +13,25 @@
 <div class="main">
 
   <div class="box">
-    <p>Champions</p>
+    <p>¡Bienvenido a la Champions Left! Aquí es donde los grandes se enfrentan y solo uno será reconocido como el mejor de todos.</p>
+
+    {{#if adminAccess}}
+      <form action="/createGame" method="POST">
+        <button type="submit" class="create">[Crea una partida Privada]</button>
+        </span>
+      </form>
+    {{/if}}
+    <br/>
+    <form action="/joinGame" method="POST">
+      <span>¿Quieres demostrar tu habilidad? 
+      <input type="text" placeholder="Code" name="code">
+      <button type="submit" class="create">[Join]</button>
+    </form>
+    <br/>
+
+    <h2>Stats</h2>
+    <a href="">[2025]</a>
+
   </div>
   
   <div class="box-right">

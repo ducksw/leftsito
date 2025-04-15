@@ -1,4 +1,5 @@
 import moment from 'moment';
+
 const helpers = {};
 
 helpers.timeago = timestamp => {

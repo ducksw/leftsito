@@ -1,6 +1,7 @@
 .logo {
   display: flex;
   gap: 5px;
+  padding: 10px;
 }
 
 .logo span {
@@ -15,13 +16,17 @@ nav {
   display: flex;
   gap: 40px;
   max-width: 100%;
-  width: 100em;
+  width: 80em;
   margin: auto;
+  background-color: #111010;
+  border: 1px solid #333333;
+  border-bottom: none;
 }
 
 .link-nav {
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .links {

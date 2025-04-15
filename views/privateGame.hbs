@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <title>LEFTSITO | Home</title>
+</head>
+<body>
+  {{> nav}}
+
+<div class="main">
+
+  <div class="box">
+    {{#if isCreator}}
+      {{game.code}}
+    {{/if}}
+
+  </div>
+  
+  <div class="box-right">
+    {{> profile}}
+  </div>
+
+</div>
+</body>
+</html>

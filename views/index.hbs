@@ -1,27 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/nav.css">
-  <title>LEFTSITO | Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>L4D2 Competitive Hub</title>
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
-  {{> nav}}
+<div class="container">
+  <div class="layout">
+    {{> nav}}
 
-<div class="main">
+    <main class="main-content">
+      <section class="hero">
+        <h2>Bienvenido al campo de batalla</h2>
+        <p>Prepárate para demostrar tu habilidad en partidas clasificadas.</p>
+      </section>
 
-  <div class="box">
-    <p>Bienvenido</p>
+      <section class="stats-grid">
+        <div class="card">
+          <h3>Jugadores</h3>
+          <p class="length">{{lengthSteam}}</p>
+        </div>
+        <div class="card">
+          <h3>Partidas Totales</h3>
+          <p class="length">{{lengthGame}}</p>
+        </div>
+        <div class="card">
+          <h3>Ranking Global</h3>
+          <p><a href="#">Ver tabla</a></p>
+        </div>
+        <div class="card">
+          <h3>Mi Rango</h3>
+          <p>Experto (+)</p>
+        </div>
+      </section>
+      {{!-- 
+      <section class="lobby">
+        <h3>Jugadores buscando partida</h3>
+        <div class="player-list">
+          <div class="player">💀 BloodShot <span>2890</span></div>
+          <div class="player">⚡ W4rrior <span>2675</span></div>
+          <div class="player">🎯 HeadHunter <span>2432</span></div>
+          <div class="player">💉 MedicMain <span>2250</span></div>
+        </div>
+      </section> --}}
+
+      <section class="box-sections">
+        <div class="game-join">
+          <h3>Join Game</h3>
+          <div class="line"></div>
+          <div class="box-game">
+          </div>
+        </div>
+        <div class="players">
+          <h3>Players: {{lengthSteam}}</h3>
+          <div class="line"></div>
+          <div class="players-box">
+            {{#each steam}}
+              <div class="list-steam">
+                <div class="data-user">
+                  <img src="{{this.avatar}}">
+                  <span>{{this.displayName}}</span> 
+                </div>
+                <div class="elo">
+                  <span>{{this.elo}}</span>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      </section>
+
+      <div class="line"></div>
+
+      {{!-- <section class="chat-box">
+        <h3>Chat de la Arena</h3>
+        <div class="messages">
+          <div><strong>Neo:</strong> ¡Listo para la ranked!</div>
+          <div><strong>ZombiKiller:</strong> Que alguien cree lobby pls</div>
+        </div>
+        <input type="text" placeholder="Escribe tu mensaje...">
+      </section> --}}
+
+      <section class="clips">
+        <h3>📹 Clips Recientes</h3>
+        <div class="clips-grid">
+          <div class="clip">
+            {{!-- <video src="clips/epic_play_1.mp4" controls></video> --}}
+            <p>Headshot triple - W4rrior</p>
+          </div>
+          <div class="clip">
+            {{!-- <video src="clips/escape_tank.mp4" controls></video> --}}
+            <p>Escape perfecto del Tank - MedicMain</p>
+          </div>
+          <div class="clip">
+            {{!-- <video src="clips/fail_jump.mp4" controls></video> --}}
+            <p>Fail en salto - BloodShot</p>
+          </div>
+          <div class="clip">
+            {{!-- <video src="clips/fail_jump.mp4" controls></video> --}}
+            <p>Fail en salto - BloodShot</p>
+          </div>
+          <div class="clip">
+            {{!-- <video src="clips/fail_jump.mp4" controls></video> --}}
+            <p>Fail en salto - BloodShot</p>
+          </div>
+          <div class="clip">
+            {{!-- <video src="clips/fail_jump.mp4" controls></video> --}}
+            <p>Fail en salto - BloodShot</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
   </div>
-  
-  <div class="box-right">
-    {{> profile}}
-    <p>Hicimos esta página para pasarla bien y competir entre amigos.</p>
-    <span style="color: #cccccc">Échale un ojo a las <a href="/rules">reglas</a> antes de competir.</span>
-  </div>
-
 </div>
-</body>
 </html>

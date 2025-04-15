@@ -1,14 +1,12 @@
 import express from 'express';
 import PLAYER from './controllers/PlayerController.js';
 import VIDEO from './controllers/VideoController.js';
+import GAME from './controllers/GameController.js';
+import MAIN from './controllers/MainController.js';
 
 const router = express.Router();
 
 // default 
-
-router.get('/home', (req, res) => {
-	res.render('index');
-});
 
 router.get('/', (req, res) => {
 	res.redirect('/home');
@@ -32,10 +30,14 @@ router.get('/champions', (req, res) => {
 
 // with controllers
 
+router.get('/home', MAIN.index);
 router.get('/leaderboard', PLAYER.leaderboard);
 router.get('/clips', VIDEO.allVideo);
 router.post('/clips', VIDEO.video_create);
 router.get('/clips/:id', VIDEO.video_view);
+router.get('/champions/private', GAME.viewGame);
+router.post('/createGame', GAME.createGame);
+router.post('/joinGame', GAME.joinGame);
 
 export default (app) => {
 	app.use(router);
