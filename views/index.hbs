@@ -1,119 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>L4D2 Competitive Hub</title>
-  <link rel="stylesheet" href="./css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L4D2 HUB</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/boostrap.css">
 </head>
 <body>
-<div class="container">
-  <div class="layout">
-    {{> nav}}
+<div class="main">
+  {{> nav}}
+  <div class="box">
+    <div class="box-left">
 
-    <main class="main-content">
-      <section class="hero">
-        <h2>Bienvenido al campo de batalla</h2>
-        <p>Prepárate para demostrar tu habilidad en partidas clasificadas.</p>
-      </section>
+      <div class="join-game">
+        <h3 style="color: lightgreen;"><i class="bi bi-people-fill"></i> Party</h3>
+        <div class="line2"></div>
 
-      <section class="stats-grid">
-        <div class="card">
-          <h3>Jugadores</h3>
-          <p class="length">{{lengthSteam}}</p>
+        <p>Entrar a una partida privada.</p>
+        <div class="join-game-inputs">
+          <span style="color: yellow;"><b>Game private</b></span>
+          <form>
+            <input type="text" class="form-control">
+            <button class="btn btn-success" type="submit">Join</button>
+          </form>
         </div>
-        <div class="card">
-          <h3>Partidas Totales</h3>
-          <p class="length">{{lengthGame}}</p>
-        </div>
-        <div class="card">
-          <h3>Ranking Global</h3>
-          <p><a href="#">Ver tabla</a></p>
-        </div>
-        <div class="card">
-          <h3>Mi Rango</h3>
-          <p>Experto (+)</p>
-        </div>
-      </section>
-      {{!-- 
-      <section class="lobby">
-        <h3>Jugadores buscando partida</h3>
-        <div class="player-list">
-          <div class="player">💀 BloodShot <span>2890</span></div>
-          <div class="player">⚡ W4rrior <span>2675</span></div>
-          <div class="player">🎯 HeadHunter <span>2432</span></div>
-          <div class="player">💉 MedicMain <span>2250</span></div>
-        </div>
-      </section> --}}
+      </div>
 
-      <section class="box-sections">
-        <div class="game-join">
-          <h3>Join Game</h3>
-          <div class="line"></div>
-          <div class="box-game">
+      <div class="box-ranked">
+        <h3 style=" display: flex; align-items: center; gap: 10px; color: red;">
+          <img class="tank-icon" src="./image/tank-icon.png">
+          Ranked
+        </h3>
+        <div class="line2"></div>
+        <div class="ranked">
+          <div class="join-ranked">
+            <img class="tank-ranked" src="./image/tank-ranked.png">
+            <form action="/join-queue" class="form-ranked" method="POST">
+              <button class="btn btn-danger" type="submit">Join ranked</button>
+              <button class="btn btn-dark" disabled>Exit ranked</button>
+            </form>
           </div>
-        </div>
-        <div class="players">
-          <h3>Players: {{lengthSteam}}</h3>
-          <div class="line"></div>
-          <div class="players-box">
-            {{#each steam}}
-              <div class="list-steam">
-                <div class="data-user">
-                  <img src="{{this.avatar}}">
-                  <span>{{this.displayName}}</span> 
-                </div>
-                <div class="elo">
-                  <span>{{this.elo}}</span>
-                </div>
-              </div>
-            {{/each}}
-          </div>
-        </div>
-      </section>
 
-      <div class="line"></div>
 
-      {{!-- <section class="chat-box">
-        <h3>Chat de la Arena</h3>
-        <div class="messages">
-          <div><strong>Neo:</strong> ¡Listo para la ranked!</div>
-          <div><strong>ZombiKiller:</strong> Que alguien cree lobby pls</div>
+          <br/>
+          <div class="line2"></div>
+
         </div>
-        <input type="text" placeholder="Escribe tu mensaje...">
-      </section> --}}
 
-      <section class="clips">
-        <h3>📹 Clips Recientes</h3>
-        <div class="clips-grid">
-          <div class="clip">
-            {{!-- <video src="clips/epic_play_1.mp4" controls></video> --}}
-            <p>Headshot triple - W4rrior</p>
-          </div>
-          <div class="clip">
-            {{!-- <video src="clips/escape_tank.mp4" controls></video> --}}
-            <p>Escape perfecto del Tank - MedicMain</p>
-          </div>
-          <div class="clip">
-            {{!-- <video src="clips/fail_jump.mp4" controls></video> --}}
-            <p>Fail en salto - BloodShot</p>
-          </div>
-          <div class="clip">
-            {{!-- <video src="clips/fail_jump.mp4" controls></video> --}}
-            <p>Fail en salto - BloodShot</p>
-          </div>
-          <div class="clip">
-            {{!-- <video src="clips/fail_jump.mp4" controls></video> --}}
-            <p>Fail en salto - BloodShot</p>
-          </div>
-          <div class="clip">
-            {{!-- <video src="clips/fail_jump.mp4" controls></video> --}}
-            <p>Fail en salto - BloodShot</p>
-          </div>
-        </div>
-      </section>
+      </div>
 
-    </main>
+    </div>
+
+    <div class="box-right">
+
+      {{> profile}}
+      {{> stats }}
+
+    </div>
   </div>
 </div>
+
+</body>
 </html>

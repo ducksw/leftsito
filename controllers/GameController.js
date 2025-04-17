@@ -1,5 +1,5 @@
 import Game from '../models/GameModels.js';
-import Steam from '../models/UserSteamModels.js';
+//import Steam from '../models/UserSteamModels.js';
 import help from '../helpers/random.js';
 
 const gm = {};
@@ -48,7 +48,6 @@ gm.createGame = async (req, res) => {
 }
 
 gm.joinGame = async (req, res) => {
-
   const { code } = req.body;
   const steamId = req.session.steamId;
   const displayName = req.session.displayName;

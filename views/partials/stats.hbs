@@ -1,0 +1,37 @@
+<div class="box-stats">
+<div class="stats">
+  <div class="stats-name">
+    <i class="bi bi-person-fill"></i>
+    <h3>Players</h3>
+  </div>
+  <span><b>{{lengthSteam}}</b></span>
+</div>
+<div class="stats">
+  <div class="stats-name">
+    <i class="bi bi-controller"></i>
+    <h3>Rankeds</h3>
+  </div>
+  <span><b>{{lengthRanked}}</b></span>
+</div>
+<div class="stats">
+  <div class="stats-name">
+    <i class="bi bi-film"></i>
+    <h3>Clips</h3>
+  </div>
+  <span><b>{{lengthClip}}</b></span>
+</div>
+</div>
+
+<div class="list-player">
+<h3>Players: {{lengthSteam}}</h3>
+<div class="line2"></div>
+{{#each steam}}
+  <div class="lists">
+    <div class="list-profile">
+      <img src="{{this.avatar}}">
+      <span>{{this.displayName}}</span>
+      <span style="color: brown; font-weight: bold;"><span style="color: grey">[</span>{{this.elo}}<span style="color: grey">]</span></span>
+    </div>
+  </div>
+{{/each}}
+</div>

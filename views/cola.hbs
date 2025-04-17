@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L4D2 HUB</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/boostrap.css">
+</head>
+<body>
+<div class="main">
+  {{> nav}}
+  <div class="box">
+    <div class="box-left">
+
+      <div class="join-game">
+        <h3 style="color: lightgreen;"><i class="bi bi-people-fill"></i> Party</h3>
+        <div class="line2"></div>
+
+        <p>Entrar a una partida privada.</p>
+        <div class="join-game-inputs">
+          <span style="color: yellow;"><b>Game private</b></span>
+          <form>
+            <input type="text" class="form-control input" disabled>
+            <button class="btn btn-success" disabled type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="box-ranked">
+        <h3 style=" display: flex; align-items: center; gap: 10px; color: red;">
+          <img class="tank-icon" src="../image/tank-icon.png">
+          Ranked
+        </h3>
+        <div class="line2"></div>
+        <div class="ranked">
+          <div class="join-ranked">
+            <img class="tank-ranked" src="../image/tank-ranked.png">
+            <div class="form-box">
+              <form action="/join-queue" class="form-ranked" method="POST">
+                <button class="btn btn-danger" type="submit" disabled>Join ranked</button>
+              </form>
+              <form action="/leave-queue" class="form-ranked" method="POST">
+                <button class="btn btn-dark">Exit ranked</button>
+              </form>
+            </div>
+
+          </div>
+
+
+          <br/>
+          <div class="line2"></div>
+
+          <div class="cola">
+            <br/>
+            <span>Actualmente en cola: {{rankedPlayers}} / 8</span>
+            <div class="cola2">
+              {{#each queue}}
+                <div class="cola-box" id="list-cola">
+                  <span class="box-cola-user"><img src="{{this.avatar}}" width="30"> {{this.displayName}}</span>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="box-right">
+      {{> profile}}
+      {{> stats }}
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+</body>
+</html>

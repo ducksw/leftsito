@@ -3,6 +3,7 @@ import PLAYER from './controllers/PlayerController.js';
 import VIDEO from './controllers/VideoController.js';
 import GAME from './controllers/GameController.js';
 import MAIN from './controllers/MainController.js';
+import RANKED from './controllers/RankedController.js';
 
 const router = express.Router();
 
@@ -37,7 +38,12 @@ router.post('/clips', VIDEO.video_create);
 router.get('/clips/:id', VIDEO.video_view);
 router.get('/champions/private', GAME.viewGame);
 router.post('/createGame', GAME.createGame);
-router.post('/joinGame', GAME.joinGame);
+
+// rankeds
+router.post('/join-queue', RANKED.joinRankedQueue);
+router.get('/cola', RANKED.viewRankedMatch);
+router.post('/leave-queue', RANKED.leaveQueue);
+
 
 export default (app) => {
 	app.use(router);

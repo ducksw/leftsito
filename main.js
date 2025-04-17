@@ -93,7 +93,7 @@ passport.use(
 						displayName: profile.displayName,
 						profileurl: profile._json.profileurl,
 						elo: profile.elo,
-						avatar: profile.photos[2].value,
+						avatar: profile.photos[1].value,
 						timecreated: new Date(profile._json.timecreated * 1000),
 						personastate: profile._json.personastate,
 						realname: profile._json.realname,
